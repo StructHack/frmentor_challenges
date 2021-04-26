@@ -1,0 +1,288 @@
+*{
+	box-sizing: border-box;
+}
+
+:root {
+	--slidbar: hsl(174, 77%, 80%);
+	--slidbg: hsl(174, 86%, 45%);
+	--disback: hsl(14, 92%, 95%);
+	--ligred: hsl(15, 100%, 70%);
+	--palblue: hsl(226, 100%, 87%);
+
+	--pricbg: hsl(0, 0%, 100%);
+	--vplaebl: hsl(230, 100%, 99%);
+	--liggraybl: hsl(224, 65%, 95%);
+	--liggraybl2: hsl(223, 50%, 87%);
+	--grayblue: hsl(225, 20%, 60%);
+	--darblue: hsl(227, 35%, 25%);
+}
+
+body{
+	font-family: 'Manrope', sans-serif;
+	font-size: 12px;
+	color:var(--grayblue);
+	padding: 0;
+	margin: 0;
+}
+
+h1,h2,h3{
+	color: black;
+	padding:0;
+	margin: 0;
+}
+
+.container{
+	background-image: url('../images/pattern-circles.svg'), url('../images/bg-pattern.svg');
+	background-repeat: no-repeat;
+	background-size: top left, bottom left;
+	background-position: center 8em, top left;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.container .header_container{
+	text-align: center;
+	padding: 5em 1em;
+	margin-top: 6em;
+}
+
+.container .header_container h2{
+	margin-bottom: 0.8em;
+}
+
+.container .header_container span{
+	color: var(--grayblue);
+	font-weight: 600;
+	display: inline-block;
+	padding: 0 6em;
+}
+
+.container .display_grid{
+	width: 100%;
+	text-align: center;
+}
+
+.container_section{
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 1px 1px 10px -6px black;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 1em 2em;
+	padding: 2em;
+
+}
+
+
+.container_section .views{
+	padding: 1em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--grayblue);
+}
+.container_section .slider_1{
+	width: 100%;
+}
+.container_section .slider_1 input{
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 5px;
+	background:var(--slidbar);
+	outline: none;
+
+}
+
+.container_section .slider_1 input::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--slidbg);
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.container_section .slider_1 input::-moz-range-thumb{
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	cursor: pointer;
+
+}
+
+.container_section .slider_1 input::-webkit-slider-thumb:hover{
+	box-shadow: 1px 1px 10px 2px var(--slidbg);
+}
+
+.container_section .slider_1{
+	margin-bottom: 1em;
+	margin: 0;
+}
+
+.container_section .price{
+	margin: 1.5em; 
+}
+
+.container_section .price #amount{
+	color:black;
+	vertical-align: middle;
+	font-size: 2.5em;
+	font-weight: 800;
+}
+
+/*For toggle switch*/
+.switch{
+	position: relative;
+	display: inline-block;
+	width: 35px;
+	height: 19px;
+	margin: 0 0.5em;
+}
+
+.switch input{
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.switch .slider{
+	position: absolute;
+	cursor: pointer;
+	top:0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: var(--liggraybl2);
+	border-radius: 50em;
+	transition: .4s;
+}
+
+.switch .slider:before{
+	position: absolute;
+	content: "";
+	height: 15px;
+	width: 15px;
+	background-color: white;
+	border-radius: 50%;
+	left:2px;
+	top: 2px;
+	transition: 300ms;
+}
+
+.switch input:checked + .slider{
+	background-color:var(--slidbar);
+}
+
+.switch input:checked + .slider:before{
+	transform: translateX(16px);
+}
+
+#discount{
+	color: var(--ligred);
+	background-color: var(--disback);
+	padding:0 5px;
+	border-radius: 1em;
+}
+
+.line_below{
+	padding-top: 0.4em;
+	padding-bottom: 2em;
+}
+
+.hr{
+	width: 100%;
+	margin:0;
+	padding: 0;
+	border-bottom: 1px solid var(--liggraybl);
+}
+
+
+
+.footer{
+	text-align: center;
+}
+.footer p:before{
+	content: " ✓  ";
+	font-weight: bold;
+	color: var(--slidbg);
+}
+
+.footer a{
+	text-decoration: none;
+	display: inline-block;
+	background-color: var(--darblue);
+	color: white;
+	padding:0.6em 3em;
+	margin-top:1em;
+	border-radius: 2em;
+}
+
+
+
+@media screen and (min-width: 510px){
+	.container_section{
+		width: 500px;
+	}
+	.footer{
+		width: 90%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+	.footer>aside{
+		flex-basis: 50%;
+		text-align: left;
+	}
+	.footer aside:nth-child(2){
+		text-align: right;
+	}
+
+	#discount:after{
+		content:" discount";
+	}
+	.display_grid{
+		display: grid;
+		grid-template-rows: 50% 50%;
+		grid-template-columns: auto auto;
+		/*justify-content: center;*/
+		align-items: center;
+		grid-auto-rows: 100%;
+	}
+
+	.display_grid .slider_1{
+		grid-row:2;
+		grid-column: 1/ span 2;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
